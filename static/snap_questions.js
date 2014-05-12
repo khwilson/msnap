@@ -1,12 +1,13 @@
 'use strict';
 
 var CONSTANTS = {
-  "poverty": [ // The maximum amount of money a family of size idx
-               // can make per month 
-    0, 932, 1262, 1592, 1922, 2252, 2582, 2912, 3242, 3572, 3902, 4232, 4562
+  // All the following are per household size starting at size 0
+  "poverty": [
+    // Maximum monthly income before taxes for neither elderly nor disabled not dependents / 1.3
+    0, 957.69, 1293.076, 1627.69, 1963.076, 2298.46, 2633.85, 2969.23, 3304.61, 3639.99, 3975.37, 44310.75, 4646.13
   ],
   "maximumMonthlyBenefit": [ // Maximum SNAP benefit for a household of size (key)
-    0, 200, 367, 526, 668, 793, 952, 1052, 1202, 1352, 1502, 1652, 1802
+    0, 189, 347, 497, 632, 750, 900, 995, 1137, 1279, 1421, 1563, 1705
   ],
   "standardDeduction": [
     0, 149, 149, 149, 160, 187, 214, 214, 214, 214, 214, 214, 214
