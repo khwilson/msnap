@@ -4,7 +4,7 @@ var CONSTANTS = {
   // All the following are per household size starting at size 0
   "poverty": [
     // Maximum monthly income before taxes for neither elderly nor disabled not dependents / 1.3
-    0, 957.69, 1293.076, 1627.69, 1963.076, 2298.46, 2633.85, 2969.23, 3304.61, 3639.99, 3975.37, 44310.75, 4646.13
+    0, 957.69, 1293.076, 1627.69, 1963.076, 2298.46, 2633.85, 2969.23, 3304.61, 3639.99, 3975.37, 4310.75, 4646.13
   ],
   "maximumMonthlyBenefit": [ // Maximum SNAP benefit for a household of size (key)
     0, 189, 347, 497, 632, 750, 900, 995, 1137, 1279, 1421, 1563, 1705
