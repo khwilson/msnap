@@ -10,7 +10,7 @@ var CONSTANTS = {
     0, 189, 347, 497, 632, 750, 900, 995, 1137, 1279, 1421, 1563, 1705
   ],
   "standardDeduction": [
-    0, 149, 149, 149, 160, 187, 214, 214, 214, 214, 214, 214, 214
+    0, 152, 152, 152, 163, 191, 219, 219, 219, 219, 219, 219, 219
   ]
 };
 
@@ -224,12 +224,12 @@ function computeResults() {
 
   var sua = 0.0;
   if(getPropertyOrZero(answers.shelter, 'rent') > 0) {
-    sua += 725;
+    sua += 753;
   } else {
     if(getPropertyOrZero(answers.shelterExtra, 'heating') > 0)
-      sua += 725;
+      sua += 753;
     if(getPropertyOrZero(answers.shelterExtra, 'electric') > 0)
-      sua += 287;
+      sua += 298;
     if(getPropertyOrZero(answers.shelterExtra, 'telephone') > 0)
       sua += 33;
   }
@@ -243,8 +243,8 @@ function computeResults() {
     excessShelter = 0.0;
 
   if(!answers.people.elderlyOrDisabled)
-    if(excessShelter > 469)
-      excessShelter = 469;
+    if(excessShelter > 478)
+      excessShelter = 478;
 
   var netIncome = adjustedIncome - excessShelter;
   var totalMinusChildSupport = earnedIncome + unearnedIncome;
