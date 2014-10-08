@@ -244,11 +244,12 @@ function showQuestion() {
                            .text(optionName);
           $button.click(function() {
             // Ugly hack because variable resolution seems broken in JS....
+            var thisValue = $(this)[0].innerText;
             var thisId = $(this).attr('id');
             var prefix = thisId.substr(0, thisId.lastIndexOf('-'));
             $("." + prefix).removeClass('active');
             $(this).addClass('active');
-            $("#" + prefix + "-hidden").val(optionName);
+            $("#" + prefix + "-hidden").val(thisValue);
           });
 
         if(field.name in answerData && answerData[field.name] !== null) {
