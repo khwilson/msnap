@@ -256,12 +256,15 @@ function computeResults() {
   var eitherDEorDep = (totalMinusChildSupport < 
                       2.0 * CONSTANTS.poverty[numberInHousehold]);
   var justDE = (netIncome < CONSTANTS.poverty[numberInHousehold]);
+  var hasEarnedIncomeAndIsEligible = (totalMinusChildSupport <
+                                      (1.5 * CONSTANTS.poverty[numberInHousehold]));
 
   var eligible = false;
   if(neitherDEnorDep ||
     ((answers.people.elderlyOrDisabled || answers.people.disabledCare)
         && eitherDEorDep) ||
-    (answers.people.elderlyOrDisabled && justDE)) {
+     hasEarnedIncomeAndIsEligible ||
+     (answers.people.elderlyOrDisabled && justDE)) {
     eligible = true;
   }
 
