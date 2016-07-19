@@ -257,13 +257,19 @@ function computeResults() {
                       2.0 * CONSTANTS.poverty[numberInHousehold]);
   var justDE = (netIncome < CONSTANTS.poverty[numberInHousehold]);
   var hasEarnedIncomeAndIsEligible = (totalMinusChildSupport <
-                                      (1.5 * CONSTANTS.poverty[numberInHousehold]));
+                                      (1.5 * CONSTANTS.poverty[numberInHousehold])) && (earnedIncome > 0);
+  var hasDependentCareCosts = getPropertyOrZero(answers.dependents, 'childSupport') > 0;
 
   var eligible = false;
   if(neitherDEnorDep ||
     ((answers.people.elderlyOrDisabled || answers.people.disabledCare)
         && eitherDEorDep) ||
-     hasEarnedIncomeAndIsEligible ||
+     // 150% Earned Income category requirements:
+     // 1) Has earned income
+     // 2) No dependent care costs
+     // 3) Not elderly, not disabled
+     (hasEarnedIncomeAndIsEligible && !hasDependentCareCosts &&
+      !answers.people.elderlyOrDisabled) ||
      (answers.people.elderlyOrDisabled && justDE)) {
     eligible = true;
   }
