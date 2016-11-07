@@ -4,13 +4,13 @@ var CONSTANTS = {
   // All the following are per household size starting at size 0
   "poverty": [
     // Maximum monthly income before taxes for neither elderly nor disabled not dependents / 1.3
-    0, 981.53, 1327.69, 1674.615, 2021.53, 2367.69, 2714.61, 3061.53, 3407.69, 3754.61, 4101.53, 4448.46, 4793.07
+    0, 990, 1335, 1680, 2025, 2370, 2715, 3061, 3408, 3755, 4102, 4449, 4796
   ],
   "maximumMonthlyBenefit": [ // Maximum SNAP benefit for a household of size (key)
     0, 194, 357, 511, 649, 771, 925, 1022, 1169, 1315, 1461, 1607, 1753
   ],
   "standardDeduction": [
-    0, 155, 155, 155, 168, 197, 226, 226, 226, 226, 226, 226, 226
+    0, 157, 157, 157, 168, 197, 226, 226, 226, 226, 226, 226, 226
   ]
 };
 
@@ -224,12 +224,12 @@ function computeResults() {
 
   var sua = 0.0;
   if(getPropertyOrZero(answers.shelter, 'rent') > 0) {
-    sua += 768;
+    sua += 758
   } else {
     if(getPropertyOrZero(answers.shelterExtra, 'heating') > 0)
-      sua += 768;
+      sua += 758;
     if(getPropertyOrZero(answers.shelterExtra, 'electric') > 0)
-      sua += 304;
+      sua += 300;
     if(getPropertyOrZero(answers.shelterExtra, 'telephone') > 0)
       sua += 33;
   }
@@ -243,8 +243,8 @@ function computeResults() {
     excessShelter = 0.0;
 
   if(!answers.people.elderlyOrDisabled)
-    if(excessShelter > 504)
-      excessShelter = 504;
+    if(excessShelter > 517)
+      excessShelter = 517;
 
   var netIncome = adjustedIncome - excessShelter;
   var totalMinusChildSupport = earnedIncome + unearnedIncome;
